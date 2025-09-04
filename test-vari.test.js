@@ -1,4 +1,4 @@
-const { getInitials, createSlug, average, createSlug2, isPalindrome, findPostById } = require('./test-vari.js')
+const { getInitials, createSlug, average, isPalindrome, findPostById } = require('./test-vari.js')
 
 const posts = [
     {
@@ -32,9 +32,9 @@ test("La funzione getInitials restituisce le iniziali di un nome completo", () =
 // Creare un test che verifichi la seguente descrizione:
 // 👉 "La funzione createSlug restituisce una stringa in lowercase."
 
-test("La funzione createSlug restituisce una stringa in lowercase.", () => {
-    expect(createSlug("JAVA")).toBe("java")
-})
+// test("La funzione createSlug restituisce una stringa in lowercase.", () => {
+//     expect(createSlug("JAVA")).toBe("java")
+// })
 
 // SNACK 3
 // Creare un test che verifichi la seguente descrizione:
@@ -49,11 +49,11 @@ test("La funzione average calcola la media aritmetica di un array di numeri.", (
 // Creare un test che verifichi la seguente descrizione:
 // 👉 "La funzione createSlug sostituisce gli spazi con -."
 
-test("La funzione createSlug sostituisce gli spazi con -.", () => {
-    expect(createSlug2("Questo è un test")).toBe("questo-e-un-test")
-    expect(createSlug2("Oggi è una bella giornata")).toBe("oggi-e-una-bella-giornata")
+// test("La funzione createSlug sostituisce gli spazi con -.", () => {
+//     expect(createSlug("Questo è un test")).toBe("questo-e-un-test")
+//     expect(createSlug("Oggi è una bella giornata")).toBe("oggi-e-una-bella-giornata")
 
-})
+// })
 
 // SNACK 5
 // Creare un test che verifichi la seguente descrizione:
@@ -65,9 +65,9 @@ test("La funzione isPalindrome verifica se una stringa è un palindromo.", () =>
 // SNACK 6
 // Creare un test che verifichi la seguente descrizione:
 // 👉 "La funzione createSlug lancia un errore se il titolo è vuoto o non valido."
-test("La funzione createSlug lancia un errore se il titolo è vuoto o non valido.", () => {
-    expect(() => createSlug("")).toThrow()
-})
+// test("La funzione createSlug lancia un errore se il titolo è vuoto o non valido.", () => {
+//     expect(() => createSlug("")).toThrow()
+// })
 
 
 // SNACK 7
@@ -83,3 +83,19 @@ test("La funzione findPostById restituisce il post corretto dato l’array di po
     })
 })
 
+
+// DESCRIBE
+
+describe("Gruppo di test sulla creazione di uno slug", () => {
+    test("La funzione createSlug restituisce una stringa in lowercase.", () => {
+        expect(createSlug("JAVA")).toBe("java")
+    });
+    test("La funzione createSlug sostituisce gli spazi con -.", () => {
+        expect(createSlug("Questo è un test")).toBe("questo-e-un-test")
+        expect(createSlug("Oggi è una bella giornata")).toBe("oggi-e-una-bella-giornata")
+
+    });
+    test("La funzione createSlug lancia un errore se il titolo è vuoto o non valido.", () => {
+        expect(() => createSlug("")).toThrow()
+    });
+})
