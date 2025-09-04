@@ -3,6 +3,9 @@ function getInitials(name) {
 }
 
 function createSlug(query) {
+    if (query === "") {
+        throw new Error("il campo è vuoto")
+    }
     return query.toLowerCase()
 }
 
