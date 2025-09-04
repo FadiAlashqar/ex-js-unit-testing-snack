@@ -16,8 +16,15 @@ function average(arr, num) {
     return sum / num
 }
 
+
+function createSlug2(query) {
+    return query.split(" ").join("-").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+}
+
+
 module.exports = {
     getInitials,
     createSlug,
-    average
+    average,
+    createSlug2
 }

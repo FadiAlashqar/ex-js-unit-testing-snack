@@ -1,4 +1,4 @@
-const { getInitials, createSlug, average } = require('./test-vari.js')
+const { getInitials, createSlug, average, createSlug2 } = require('./test-vari.js')
 
 // SNACK 1
 // Creare un test che verifichi la seguente descrizione:
@@ -24,4 +24,14 @@ test("La funzione createSlug restituisce una stringa in lowercase.", () => {
 test("La funzione average calcola la media aritmetica di un array di numeri.", () => {
     expect(average([4, 3, 5, 7, 1], 5)).toBe(4)
     expect(average([5, 9, 7, 6, 10, 8, 4], 7)).toBe(7)
+})
+
+// SNACK 4
+// Creare un test che verifichi la seguente descrizione:
+// 👉 "La funzione createSlug sostituisce gli spazi con -."
+
+test("La funzione createSlug sostituisce gli spazi con -.", () => {
+    expect(createSlug2("Questo è un test")).toBe("questo-e-un-test")
+    expect(createSlug2("Oggi è una bella giornata")).toBe("oggi-e-una-bella-giornata")
+
 })
