@@ -23,10 +23,10 @@ const posts = [
 // Creare un test che verifichi la seguente descrizione:
 // 👉 "La funzione getInitials restituisce le iniziali di un nome completo."
 
-test("La funzione getInitials restituisce le iniziali di un nome completo", () => {
-    expect(getInitials("Fadi")).toBe("F")
-    expect(getInitials("Giulia")).toBe("G")
-})
+// test("La funzione getInitials restituisce le iniziali di un nome completo", () => {
+//     expect(getInitials("Fadi")).toBe("F")
+//     expect(getInitials("Giulia")).toBe("G")
+// })
 
 // SNACK 2
 // Creare un test che verifichi la seguente descrizione:
@@ -40,10 +40,10 @@ test("La funzione getInitials restituisce le iniziali di un nome completo", () =
 // Creare un test che verifichi la seguente descrizione:
 // 👉 "La funzione average calcola la media aritmetica di un array di numeri."
 
-test("La funzione average calcola la media aritmetica di un array di numeri.", () => {
-    expect(average([4, 3, 5, 7, 1], 5)).toBe(4)
-    expect(average([5, 9, 7, 6, 10, 8, 4], 7)).toBe(7)
-})
+// test("La funzione average calcola la media aritmetica di un array di numeri.", () => {
+//     expect(average([4, 3, 5, 7, 1], 5)).toBe(4)
+//     expect(average([5, 9, 7, 6, 10, 8, 4], 7)).toBe(7)
+// })
 
 // SNACK 4
 // Creare un test che verifichi la seguente descrizione:
@@ -58,9 +58,9 @@ test("La funzione average calcola la media aritmetica di un array di numeri.", (
 // SNACK 5
 // Creare un test che verifichi la seguente descrizione:
 // 👉 "La funzione isPalindrome verifica se una stringa è un palindromo."
-test("La funzione isPalindrome verifica se una stringa è un palindromo.", () => {
-    expect(isPalindrome("anna")).toBeTruthy()
-})
+// test("La funzione isPalindrome verifica se una stringa è un palindromo.", () => {
+//     expect(isPalindrome("anna")).toBeTruthy()
+// })
 
 // SNACK 6
 // Creare un test che verifichi la seguente descrizione:
@@ -75,27 +75,55 @@ test("La funzione isPalindrome verifica se una stringa è un palindromo.", () =>
 // Creare un test che verifichi le seguenti descrizioni:
 // 👉 "La funzione findPostById restituisce il post corretto dato l’array di post e l’id"
 
-test("La funzione findPostById restituisce il post corretto dato l’array di post e l’id", () => {
-    expect(findPostById(1, posts)).toEqual({
-        id: 1,
-        title: "Primo post",
-        slug: "primo-post"
-    })
-})
+// test("La funzione findPostById restituisce il post corretto dato l’array di post e l’id", () => {
+//     expect(findPostById(1, posts)).toEqual({
+//         id: 1,
+//         title: "Primo post",
+//         slug: "primo-post"
+//     })
+// })
 
 
 // DESCRIBE
 
-describe("Gruppo di test sulla creazione di uno slug", () => {
-    test("La funzione createSlug restituisce una stringa in lowercase.", () => {
-        expect(createSlug("JAVA")).toBe("java")
-    });
-    test("La funzione createSlug sostituisce gli spazi con -.", () => {
-        expect(createSlug("Questo è un test")).toBe("questo-e-un-test")
-        expect(createSlug("Oggi è una bella giornata")).toBe("oggi-e-una-bella-giornata")
+describe("Gruppo di test", () => {
+    describe("Test sulla creazione di slug", () => {
+        test("La funzione createSlug restituisce una stringa in lowercase.", () => {
+            expect(createSlug("JAVA")).toBe("java")
+        });
+        test("La funzione createSlug sostituisce gli spazi con -.", () => {
+            expect(createSlug("Questo è un test")).toBe("questo-e-un-test")
+            expect(createSlug("Oggi è una bella giornata")).toBe("oggi-e-una-bella-giornata")
 
-    });
-    test("La funzione createSlug lancia un errore se il titolo è vuoto o non valido.", () => {
-        expect(() => createSlug("")).toThrow()
-    });
+        });
+        test("La funzione createSlug lancia un errore se il titolo è vuoto o non valido.", () => {
+            expect(() => createSlug("")).toThrow()
+        });
+    })
+    describe("Test per funzioni che estraggono le iniziali", () => {
+        test("La funzione getInitials restituisce le iniziali di un nome completo", () => {
+            expect(getInitials("Fadi")).toBe("F")
+            expect(getInitials("Giulia")).toBe("G")
+        })
+    })
+    describe("Test su funzioni che fanno la media aritmetica", () => {
+        test("La funzione average calcola la media aritmetica di un array di numeri.", () => {
+            expect(average([4, 3, 5, 7, 1], 5)).toBe(4)
+            expect(average([5, 9, 7, 6, 10, 8, 4], 7)).toBe(7)
+        })
+    })
+    describe("Test per valutare se una parola è palindorma", () => {
+        test("La funzione isPalindrome verifica se una stringa è un palindromo.", () => {
+            expect(isPalindrome("anna")).toBeTruthy()
+        })
+    })
+    describe("Test per funzioni che trovano un oggetto di un array a aprtire da un id", () => {
+        test("La funzione findPostById restituisce il post corretto dato l’array di post e l’id", () => {
+            expect(findPostById(1, posts)).toEqual({
+                id: 1,
+                title: "Primo post",
+                slug: "primo-post"
+            })
+        })
+    })
 })
