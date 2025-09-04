@@ -21,10 +21,17 @@ function createSlug2(query) {
     return query.split(" ").join("-").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
 }
 
+function isPalindrome(string) {
+    let reversedString = string.split("").reverse().join("")
+
+    return reversedString === string ? true : false
+
+}
 
 module.exports = {
     getInitials,
     createSlug,
     average,
-    createSlug2
+    createSlug2,
+    isPalindrome
 }
