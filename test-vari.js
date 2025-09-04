@@ -1,3 +1,4 @@
+
 function getInitials(name) {
     return name.slice(0, 1)
 }
@@ -31,10 +32,15 @@ function isPalindrome(string) {
 
 }
 
+function findPostById(id, arr) {
+    return arr.find((p) => p.id === id)
+}
+
 module.exports = {
     getInitials,
     createSlug,
     average,
     createSlug2,
-    isPalindrome
+    isPalindrome,
+    findPostById
 }

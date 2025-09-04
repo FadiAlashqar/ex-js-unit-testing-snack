@@ -1,4 +1,23 @@
-const { getInitials, createSlug, average, createSlug2, isPalindrome } = require('./test-vari.js')
+const { getInitials, createSlug, average, createSlug2, isPalindrome, findPostById } = require('./test-vari.js')
+
+const posts = [
+    {
+        id: 1,
+        title: "Primo post",
+        slug: "primo-post"
+    },
+    {
+        id: 2,
+        title: "Un altro articolo",
+        slug: "un-altro-articolo"
+    },
+    {
+        id: 3,
+        title: "Come usare JavaScript",
+        slug: "come-usare-javascript"
+    }
+];
+
 
 // SNACK 1
 // Creare un test che verifichi la seguente descrizione:
@@ -49,3 +68,18 @@ test("La funzione isPalindrome verifica se una stringa è un palindromo.", () =>
 test("La funzione createSlug lancia un errore se il titolo è vuoto o non valido.", () => {
     expect(() => createSlug("")).toThrow()
 })
+
+
+// SNACK 7
+// Crea un array di oggetti posts, in cui ogni oggetto ha le proprietà id, title e slug.
+// Creare un test che verifichi le seguenti descrizioni:
+// 👉 "La funzione findPostById restituisce il post corretto dato l’array di post e l’id"
+
+test("La funzione findPostById restituisce il post corretto dato l’array di post e l’id", () => {
+    expect(findPostById(1, posts)).toEqual({
+        id: 1,
+        title: "Primo post",
+        slug: "primo-post"
+    })
+})
+
